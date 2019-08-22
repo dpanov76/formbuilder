@@ -6,7 +6,7 @@ import {RadiobuttonComponent} from './components/radiobutton/radiobutton.compone
 import {TextareasComponent} from './components/textareas/textareas.component';
 import {LabelComponent} from './components/label/label.component';
 import {FieldsetComponent} from './components/fieldset/fieldset.component';
-import {ButtonsComponent} from './components/buttons/buttons.component';
+import {ButtonsComponent} from './components/buttons/button.component';
 import {LegendComponent} from './components/legend/legend.component';
 import {HintComponent} from './components/hint/hint.component';
 import {ValidationErrorFormControlComponent} from './components/validation-error-formcontrol/validation-error-formcontrol.component';

@@ -2,12 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {Component, CUSTOM_ELEMENTS_SCHEMA, DebugElement, ViewChild} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ButtonsComponent} from './buttons.component';
+import {ButtonComponent} from './button.component';
 
 describe('ButtonsComponent', () => {
   @Component({
     selector: `app-host-dummy-component`,
-    template: `<app-buttons
+    template: `<app-button
             [idPrefix]="idPrefix"
             [name]="name"
             [group]="group"
@@ -15,7 +15,7 @@ describe('ButtonsComponent', () => {
             [typeBtn]="typeBtn"
             [control]="control"
             [value]="value"
-        ></app-buttons>`
+        ></app-button>`
   })
   class TestDummyHostComponent {
     idPrefix = 'btn';
@@ -25,14 +25,14 @@ describe('ButtonsComponent', () => {
     typeBtn;
     control;
     value;
-    @ViewChild(ButtonsComponent, {static: false})
-    public buttonsComponent: ButtonsComponent;
+    @ViewChild(ButtonComponent, {static: false})
+    public buttonComponent: ButtonComponent;
   }
 
   let testHostComponent: TestDummyHostComponent;
   let testHostFixture: ComponentFixture<TestDummyHostComponent>;
-  let component: ButtonsComponent;
-  let fixture: ComponentFixture<ButtonsComponent>;
+  let component: ButtonComponent;
+  let fixture: ComponentFixture<ButtonComponent>;
   let element: DebugElement;
 
   beforeEach(async(() => {
@@ -42,7 +42,7 @@ describe('ButtonsComponent', () => {
         FormsModule,
         ReactiveFormsModule
       ],
-      declarations: [ ButtonsComponent, TestDummyHostComponent ],
+      declarations: [ ButtonComponent, TestDummyHostComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
@@ -52,7 +52,7 @@ describe('ButtonsComponent', () => {
     testHostComponent = testHostFixture.componentInstance;
   });
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonsComponent);
+    fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
     element = fixture.debugElement;
   });
@@ -64,18 +64,18 @@ describe('ButtonsComponent', () => {
     expect(fixture).not.toBeNull();
   });
   it('should be all data undefined until detectChanges kicks in', () => {
-    expect(testHostComponent.buttonsComponent.classes).toBeUndefined();
-    expect(testHostComponent.buttonsComponent.typeBtn).toBeUndefined();
-    expect(testHostComponent.buttonsComponent.control).toBeUndefined();
+    expect(testHostComponent.buttonComponent.classes).toBeUndefined();
+    expect(testHostComponent.buttonComponent.typeBtn).toBeUndefined();
+    expect(testHostComponent.buttonComponent.control).toBeUndefined();
   });
   it('should load data', () => {
     testHostFixture.detectChanges();
-    expect(testHostComponent.buttonsComponent.idPrefix).toEqual('btn');
-    expect(testHostComponent.buttonsComponent.name).toEqual( 'btn');
+    expect(testHostComponent.buttonComponent.idPrefix).toEqual('btn');
+    expect(testHostComponent.buttonComponent.name).toEqual( 'btn');
   });
   it('test data type', () => {
     testHostFixture.detectChanges();
-    expect(typeof testHostComponent.buttonsComponent.idPrefix === 'string').toBeTruthy();
-    expect(typeof testHostComponent.buttonsComponent.name === 'string').toBeTruthy();
+    expect(typeof testHostComponent.buttonComponent.idPrefix === 'string').toBeTruthy();
+    expect(typeof testHostComponent.buttonComponent.name === 'string').toBeTruthy();
   });
 });

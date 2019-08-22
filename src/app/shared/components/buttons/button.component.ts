@@ -2,10 +2,10 @@ import {Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'app-buttons',
-  templateUrl: './buttons.component.html'
+  selector: 'app-button',
+  templateUrl: './button.component.html'
 })
-export class ButtonsComponent {
+export class ButtonComponent {
     @Input() idPrefix = 'btn';
     @Input() name = 'btn';
     @Input() group: FormGroup;
