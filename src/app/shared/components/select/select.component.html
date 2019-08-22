@@ -10,16 +10,11 @@
   <select [formControlName]="item.control"
           [id]="item.control"
           [class]="'govuk-select ' + item.classes">
-    <option *ngFor="let o of item.options; let i = index" [value]="item.control[i].id">
-      {{item.control[i].name}}
+    <option *ngFor="let o of item.options; let i = index" [value]="o.id">
+      {{o.name}}
     </option>
   </select>
-  <!--<input [class]="'govuk-input ' + item.classes"-->
-         <!--[formControlName]="item.control"-->
-         <!--[id]="item.control"-->
-         <!--[name]="item.control"-->
-         <!--type="text">-->
-  <!--<ng-container *ngIf="validators && showValidation">-->
-    <!--<app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="item.control"></app-validation-error-formcontrol>-->
-  <!--</ng-container>-->
+  <ng-container *ngIf="validators && showValidation">
+    <app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="item.control"></app-validation-error-formcontrol>
+  </ng-container>
 </ng-container>

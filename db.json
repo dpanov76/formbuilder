@@ -108,6 +108,36 @@
           }
         },
         {
+          "select": {
+            "label": {
+              "text": "Choose your country",
+              "classes": ""
+            },
+            "validators": [
+              {
+                "type": "required",
+                "message": "Country is required"
+              }
+            ],
+            "control": "dummySelect",
+            "options": [
+              {
+                "id": 0,
+                "name": "UK"
+              },
+              {
+                "id": 1,
+                "name": "Spain"
+              },
+              {
+                "id": 2,
+                "name": "US"
+              }
+            ],
+            "classes": ""
+          }
+        },
+        {
           "button": {
             "control": "createButton",
             "value": "Continue",
