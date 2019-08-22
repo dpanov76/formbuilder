@@ -1,149 +1,90 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DatePipe } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { of } from 'rxjs';
+import { FormsComponent } from './forms.component';
+import { DataService } from '../shared/services/data.service';
 
-import {MakeDecisionComponent } from './make-decision.component';
-import {Component, CUSTOM_ELEMENTS_SCHEMA, DebugElement, Input, ViewChild} from '@angular/core';
-import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientModule} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormsService} from '../../../../shared/services/forms.service';
-import {DecisionService} from '../../../../domain/services/decision.service';
-import {ConfigService} from '../../../../config.service';
+describe('FormsComponent', () => {
+  let component: FormsComponent;
+  let fixture: ComponentFixture<FormsComponent>;
+  let decisionServiceFetchSpy;
+  let decision;
 
-describe('MakeDecisionComponent', () => {
-
-    @Component({
-        selector: `app-host-dummy-component`,
-        template: `<app-make-decision
-            [pageitems]="pageitems"
-        ></app-make-decision>`
-    })
-    class TestDummyHostComponent {
-        pageitems = {
-            header: 'something',
-            groups: {
-                fieldset : ''
+  beforeEach(async(() => {
+    decision = {};
+    TestBed.configureTestingModule({
+      declarations: [ FormsComponent ],
+      imports: [
+        HttpClientTestingModule,
+        RouterTestingModule,
+        BrowserTransferStateModule,
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [ DatePipe,
+        {
+          provide: DataService,
+          useValue: {
+            fetch: () => {
+              return of(decision);
+            },
+            submitDecisionDraft: () => {
+              return of({});
             }
-        };
-        @ViewChild(MakeDecisionComponent)
-        public makeDecisionComponent: MakeDecisionComponent;
-    }
+          }
+        },
+      ]
+    })
+      .compileComponents();
+  }));
 
-    let testHostComponent: TestDummyHostComponent;
-    let testHostFixture: ComponentFixture<TestDummyHostComponent>;
-    let el: DebugElement;
-    let de: any;
-    let component: MakeDecisionComponent;
-    let fixture: ComponentFixture<MakeDecisionComponent>;
-
-    let element: DebugElement;
-
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                ReactiveFormsModule,
-                FormsModule,
-                RouterTestingModule,
-                HttpClientModule
-            ],
-            declarations: [ MakeDecisionComponent, TestDummyHostComponent ],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
-            providers: [
-                {
-                  provide: FormsService,
-                  useValue: {
-                      create: () => {
-                        return '';
-                      },
-                      createFormControl: () => {
-                          return '';
-                      },
-                      defineformControls: () => {
-                          return '';
-                      }
-                  }
-                },
-                {
-                    provide: ConfigService,
-                    useValue: {
-                        config: {
-                            api_base_url: ''
-                        }
-                    }
-                },
-                {
-                    provide: ActivatedRoute, useValue: {
-                        parent: {
-                            params: Observable.of({caseid: '1234'}),
-                            snapshot: {
-                                data: {
-                                    caseData: {
-                                        sections: [],
-                                        details: {
-                                            fields: [
-                                                { value: '123' },
-                                                { value: 'bob v bob' }
-                                            ]
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        params: Observable.of({caseid: '1234'})
-                    }
-                },
-                {
-                    provide: DecisionService,
-                    useValue: {
-                        generateDecisionUrl: () => {
-                            return '';
-                        },
-                        fetch: () => {
-                            return of({});
-                        },
-                        submitDecisionDraft: () => {
-                            return of({});
-                        },
-                        updateDecisionDraft: () => {
-                            return of({});
-                        },
-                        issueDecision:() => {
-                            return of({});
-                        },
-                        findConsentOrderDocumentUrl: () => {
-                            return '';
-                        },
-                        findConsentOrderDocumentId: () => {
-                            return '';
-                        }
-                    }
-                }
-
-            ],
-        })
-            .compileComponents();
+  beforeEach(() => {
+    decisionServiceFetchSpy = spyOn(
+      TestBed.get(DataService),
+      'fetch'
+    ).and.returnValue(of({
+      meta: {
+      },
+      formValues: {}
     }));
-    beforeEach(() => {
-        testHostFixture = TestBed.createComponent(TestDummyHostComponent);
-        testHostComponent = testHostFixture.componentInstance;
-    });
-    beforeEach(() => {
-        fixture = TestBed.createComponent(MakeDecisionComponent);
-        component = fixture.componentInstance;
-        element = fixture.debugElement;
-    });
+    fixture = TestBed.createComponent(FormsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
-    it('should be created by angular', () => {
-        expect(fixture).not.toBeNull();
-    });
-    it('should pageitems not load', () => {
-        expect(testHostComponent.makeDecisionComponent.pageitems).toBeUndefined();
-        // testHostFixture.detectChanges();
-        // expect(testHostComponent.makeDecisionComponent.pageitems).toEqual('waste');
-    });
+  afterEach(() => {
+    TestBed.resetTestingModule();
+  });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  describe('on form submission', () => {
+
+    describe('if form is valid', () => {
+      let decisionServiceSubmitDecisionDraftSpy;
+
+      beforeEach(() => {
+        decisionServiceSubmitDecisionDraftSpy = spyOn(
+          TestBed.get(DataService),
+          'submitDecisionDraft'
+        ).and.returnValue(of({}));
+      });
+
+      it('should submit the decision', () => {
+        component.formDraft.value.createButton = {
+          toLowerCase: () => true
+        };
+        component.onSubmit();
+        expect(decisionServiceSubmitDecisionDraftSpy).toHaveBeenCalled();
+      });
+    });
+  });
 });

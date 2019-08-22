@@ -15,6 +15,7 @@ import {DateComponent} from './components/date/date.component';
 import {FormsComponent} from '../forms/forms.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormElementsComponent} from './components/jui-form-elements/form-elements.component';
+import { SelectComponent } from './components/select/select.component';
 
 
 
@@ -38,7 +39,8 @@ import {FormElementsComponent} from './components/jui-form-elements/form-element
         InputsComponent,
         DateComponent,
         FormElementsComponent,
-        FormsComponent
+        FormsComponent,
+        SelectComponent
     ],
     exports: [
         CheckboxComponent,
