@@ -1,0 +1,93 @@
+{
+  "simple": {
+    "meta": {
+      "header": "Login",
+      "groups": [
+        {
+          "input": {
+            "label": {
+              "text": "Login",
+              "classes": ""
+            },
+            "validators": [
+              {
+                "type": "required",
+                "message": "Login is required"
+              },
+              {
+                "type":"email",
+                "message": "Incorrect email format"
+              },
+              {
+                "type":"maxlength",
+                "message": "Should not be more than 14 characters",
+                "value": 14
+              },
+              {
+                "type":"minlength",
+                "message": "Should not be less than 4 characters",
+                "value": 4
+              }
+            ],
+            "control": "login",
+            "classes": ""
+          }
+        },
+        {
+          "input": {
+            "label": {
+              "text": "Password",
+              "classes": ""
+            },
+            "validators": [
+              {
+                "type": "required",
+                "message": "Password is required"
+              },
+              {
+                "type":"pattern",
+                "message": "Contains restricted characters",
+                "regexp": "^[a-zA-Z0-9_.-]*$"
+              }
+            ],
+            "control": "password",
+            "classes": ""
+          }
+        },
+        {
+          "radios": {
+            "control": "dummyRadios",
+            "validators": [
+              {
+                "type": "required",
+                "message": "Select if you want to send form"
+              }
+            ],
+            "radioGroup": [
+              {
+                "value": "yes",
+                "text": "Yes",
+                "hiddenAccessibilityText": "some hidden text for accessibility Selected Yes"
+              },
+              {
+                "value": "no",
+                "text": "No",
+                "hiddenAccessibilityText": "some hidden text accessibility Selected No"
+              }
+            ]
+          }
+        },
+        {
+          "button": {
+            "control": "createButton",
+            "value": "Continue",
+            "type": "submit",
+            "classes": "",
+            "onEvent": "continue"
+          }
+        }
+      ]
+    },
+    "formValues": {}
+  }
+}

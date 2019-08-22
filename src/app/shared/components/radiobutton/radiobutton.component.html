@@ -1,0 +1,35 @@
+<ng-container>
+  <div [class]="classes" [formGroup]="group">
+      <ng-container *ngFor="let data of items; let i = index">
+        <div class="">
+            <input class="" id="{{control + data.value}}" [formControlName]="control" type="radio" [value]= "data.value">
+            <label class="" for="{{control + data.value}}">
+                {{data.text}}
+            </label>
+            <ul *ngIf="data.list" [class]="'govuk-list' + data.list.classes">
+              <li *ngFor="let item of data.list.text">{{ item }}</li>
+            </ul>
+            <app-hint *ngIf="data.hint" [classes]="data.hint.classes">
+                {{data.hint.text}}
+            </app-hint>
+        </div>
+        <div class="">
+            <div *ngIf="data.groups && group.value[control]===data.value" class="">
+                <ng-container *ngFor="let subgroup of data.groups">
+                    <app-fieldset *ngIf="subgroup.fieldset"
+                                  [classes]="'govuk-fieldset'"
+                                  [group]="group"
+                                  [data]="subgroup.fieldset"
+                                  [validate]="showValidation"
+                                  >
+                    </app-fieldset>
+                    <app-jui-form-elements [validate]="showValidation" [group]="group" [data]="subgroup"></app-jui-form-elements>
+                </ng-container>
+            </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="validators && showValidation">
+        <app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="control"></app-validation-error-formcontrol>
+      </ng-container>
+  </div>
+</ng-container>

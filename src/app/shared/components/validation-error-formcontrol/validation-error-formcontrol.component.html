@@ -1,0 +1,3 @@
+ <ng-container [formGroup]="group" *ngFor="let validator of validators">
+    <p *ngIf="validator.type === getFieldError(control)">{{validator.message}}</p>
+ </ng-container>
