@@ -83,6 +83,7 @@
             "validators": [
               {
                 "type": "required",
+                "checkbox": true,
                 "message": "You have to agree with Terms and Conditions to use this service"
               }
             ],

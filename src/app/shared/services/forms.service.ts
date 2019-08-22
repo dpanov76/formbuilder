@@ -16,7 +16,6 @@ export class FormsService {
 
                 if (prop === 'control') {
                     if (someJson.radioGroup !== undefined) {
-                        // RadioButton Logic
                         if (Object.keys(someData).length !== 0) {
                             for (const radioEl of someJson.radioGroup) {
                                 if (radioEl.value === someData[someJson.control]) {
@@ -27,7 +26,6 @@ export class FormsService {
                                 }
                             }
                         } else {
-                            //this.FormControls[someJson.control] = new FormControl();
                           this.createFormControl(null, someJson.control, someJson.validators);
                         }
                     } else {
@@ -50,12 +48,9 @@ export class FormsService {
 
     createFormControl(initialValue: any, controlName: string, validators) {
       if (validators) {
-        console.log('FormService Has validators', validators);
         this.FormControls[controlName] = new FormControl(initialValue, this.validationService.addControlValidationFn(validators));
-        console.log('here', this.FormControls);
         return;
       }
-      console.log('FormService No validators', validators);
       this.FormControls[controlName] = new FormControl(initialValue);
     }
 

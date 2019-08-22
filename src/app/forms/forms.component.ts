@@ -43,12 +43,12 @@ export class FormsComponent implements OnInit {
       delete this.formDraft.value.createButton;
       this.request = { formValues: this.formDraft.value, event: event };
       this.request.formValues.visitedPages = this.pageValues.visitedPages;
-      console.log(this.formDraft);
       if (this.formDraft.invalid) {
         this.useValidation = true;
+        alert('Something wrong!');
         return;
       } else {
-        alert('submitted');
+        alert('Submitted');
         //this.dataService.submitdataDraft(this.pageId,this.request);
       }
     }
