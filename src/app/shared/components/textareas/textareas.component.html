@@ -4,13 +4,13 @@
                [class]="'govuk-label ' + label.classes"
                [forElement]="labelFor">{{label.text}}
     </app-label>
-      <ng-container *ngIf="validators && showValidation">
-        <app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="item.control"></app-validation-error-formcontrol>
-      </ng-container>
     <textarea [class]="classes"
-              [ngClass]="{'govuk-textarea--error':isControlInvalidAndShowValidation(group, control, showValidation) || isGroupInvalidAndShowValidation(group, showValidation)}"
+              [ngClass]=""
               [rows]="rows"
               [id]="labelFor"
               [attr.aria-label]="labelFor"
               [formControlName]="control"></textarea>
+    <ng-container *ngIf="validators && showValidation">
+      <app-validation-error-formcontrol [group]="group" [validators]="validators" [control]="control"></app-validation-error-formcontrol>
+    </ng-container>
 </ng-container>

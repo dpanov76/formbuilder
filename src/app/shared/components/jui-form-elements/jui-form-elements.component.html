@@ -60,6 +60,7 @@
       <app-textareas *ngIf="data.textarea" [classes]="'govuk-textarea'"
                       [showValidation]="validate"
                       [validationError]="data.textarea.validationError"
+                      [validators]="data.textarea.validators"
                       [group]="group"
                       [control]="data.textarea.control"
                       [label]="data.textarea.label"

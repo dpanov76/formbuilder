@@ -17,8 +17,4 @@ export class TextareasComponent {
     @Input() items;
     @Input() validationError;
     @Input() validators;
-
-    constructor() {
-    }
-
 }

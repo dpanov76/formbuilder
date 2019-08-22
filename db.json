@@ -78,6 +78,18 @@
           }
         },
         {
+          "textarea": {
+            "validators": [
+              {
+                "type": "required",
+                "message": "This text could not be empty"
+              }
+            ],
+            "control": "dummyTextArea",
+            "value": ""
+          }
+        },
+        {
           "checkbox": {
             "control": "tsAndCs",
             "validators": [
