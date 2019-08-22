@@ -83,6 +83,10 @@
               {
                 "type": "required",
                 "message": "This text could not be empty"
+              },              {
+                "type":"pattern",
+                "message": "This text contains restricted characters please remove",
+                "regexp": "^[a-zA-Z0-9_.-]*$"
               }
             ],
             "control": "dummyTextArea",
