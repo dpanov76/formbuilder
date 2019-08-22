@@ -34,7 +34,9 @@
           <app-checkbox [group]="group"
                         [validate]="validate"
                         [idPrefix]="data.checkbox.control"
+                        [validators]="data.checkbox.validators"
                         [items]="data.checkbox"
+                        [showValidation]="validate"
                         [classes]="'govuk-checkboxes__item'"
                         [labelClasses]="'govuk-label govuk-checkboxes__label'">
               <div class="govuk-form-group">

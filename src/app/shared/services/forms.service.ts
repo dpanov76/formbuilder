@@ -20,7 +20,7 @@ export class FormsService {
                         if (Object.keys(someData).length !== 0) {
                             for (const radioEl of someJson.radioGroup) {
                                 if (radioEl.value === someData[someJson.control]) {
-                                   // this.FormControls[someJson.control] = new FormControl(radioEl.value);
+                                    this.FormControls[someJson.control] = new FormControl(radioEl.value);
                                     break;
                                 } else {
                                     this.createFormControl(null, someJson.control, someJson.validators);
@@ -42,7 +42,6 @@ export class FormsService {
             }
         }
         if (someJson !== undefined && someJson.isArray) {
-
             for (const item  of someJson) {
                 this.create(someJson[item], someData);
             }

@@ -83,7 +83,7 @@
             "validators": [
               {
                 "type": "required",
-                "message": "Select if you want to send form"
+                "message": "You have to agree with Terms and Conditions to use this service"
               }
             ],
             "value": false,

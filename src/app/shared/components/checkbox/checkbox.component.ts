@@ -13,8 +13,6 @@ export class CheckboxComponent {
     @Input() classes;
     @Input() labelClasses;
     @Input() validate;
-
-    constructor() {
-    }
-
+    @Input() validators;
+    @Input() showValidation;
 }
