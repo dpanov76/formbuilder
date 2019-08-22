@@ -122,15 +122,15 @@
             "control": "dummySelect",
             "options": [
               {
-                "id": 0,
-                "name": "UK"
-              },
-              {
                 "id": 1,
                 "name": "Spain"
               },
               {
                 "id": 2,
+                "name": "UK"
+              },
+              {
+                "id": 3,
                 "name": "US"
               }
             ],
