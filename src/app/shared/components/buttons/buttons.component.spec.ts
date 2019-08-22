@@ -4,7 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonComponent} from './button.component';
 
-describe('ButtonsComponent', () => {
+describe('ButtonComponent', () => {
   @Component({
     selector: `app-host-dummy-component`,
     template: `<app-button
