@@ -78,6 +78,19 @@
           }
         },
         {
+          "checkbox": {
+            "control": "tsAndCs",
+            "validators": [
+              {
+                "type": "required",
+                "message": "Select if you want to send form"
+              }
+            ],
+            "value": false,
+            "text": "I agree with terms and conditions"
+          }
+        },
+        {
           "button": {
             "control": "createButton",
             "value": "Continue",

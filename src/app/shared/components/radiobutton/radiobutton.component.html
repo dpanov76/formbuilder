@@ -29,7 +29,7 @@
         </div>
       </ng-container>
       <ng-container *ngIf="validators && showValidation">
-        <app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="control"></app-validation-error-formcontrol>
+        <app-validation-error-formcontrol [group]="group" [validators]="validators" [control]="control"></app-validation-error-formcontrol>
       </ng-container>
   </div>
 </ng-container>

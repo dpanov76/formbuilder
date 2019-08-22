@@ -12,8 +12,8 @@ export class ValidationErrorFormControlComponent {
     @Input() validators;
 
     getFieldError(control) {
-      console.log(control, this.group.get(control).errors);
       if (this.group.get(control).errors) {
+        console.log(control, this.group.get(control).errors);
         return Object.keys(this.group.get(control).errors)[0];
       }
     }

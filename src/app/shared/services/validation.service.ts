@@ -7,6 +7,7 @@ import { Validators } from '@angular/forms';
 export class ValidationService {
   validators = [];
   addControlValidationFn(validators) {
+    console.log('Validation service called with', validators);
     this.validators = [];
     for (const v in validators) {
       if (v) {
@@ -16,6 +17,7 @@ export class ValidationService {
             break;
           case 'required':
             this.validators.push(Validators.required);
+            console.log(this.validators);
             break;
           case 'minlength':
             this.validators.push(Validators.minLength(validators[v].value));
@@ -29,6 +31,7 @@ export class ValidationService {
         }
       }
     }
+    console.log('Validation service return', this.validators);
     return this.validators;
   }
 }

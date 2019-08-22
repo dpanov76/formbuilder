@@ -32,7 +32,6 @@ export class FormsComponent implements OnInit {
     this.useValidation = false;
     this.dataService.fetch(this.pageId).subscribe(data => {
       this.data = data;
-      console.log(data);
       this.pageitems = this.data.meta;
       this.pageValues = this.data.formValues;
       this.createForm(this.pageitems, this.pageValues) ;

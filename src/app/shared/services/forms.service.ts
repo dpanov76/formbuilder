@@ -20,18 +20,18 @@ export class FormsService {
                         if (Object.keys(someData).length !== 0) {
                             for (const radioEl of someJson.radioGroup) {
                                 if (radioEl.value === someData[someJson.control]) {
-                                    this.FormControls[someJson.control] = new FormControl(radioEl.value);
+                                   // this.FormControls[someJson.control] = new FormControl(radioEl.value);
                                     break;
                                 } else {
                                     this.createFormControl(null, someJson.control, someJson.validators);
                                 }
                             }
                         } else {
-                            this.FormControls[someJson.control] = new FormControl();
+                            //this.FormControls[someJson.control] = new FormControl();
+                          this.createFormControl(null, someJson.control, someJson.validators);
                         }
                     } else {
                         if (someData[someJson.control]) {
-
                             this.FormControls[someJson.control] = new FormControl(someData[someJson.control]);
                         } else {
                             this.createFormControl(someJson.value, someJson.control, someJson.validators);
@@ -51,9 +51,12 @@ export class FormsService {
 
     createFormControl(initialValue: any, controlName: string, validators) {
       if (validators) {
+        console.log('FormService Has validators', validators);
         this.FormControls[controlName] = new FormControl(initialValue, this.validationService.addControlValidationFn(validators));
+        console.log('here', this.FormControls);
         return;
       }
+      console.log('FormService No validators', validators);
       this.FormControls[controlName] = new FormControl(initialValue);
     }
 
