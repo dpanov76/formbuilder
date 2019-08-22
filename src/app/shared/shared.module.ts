@@ -3,18 +3,18 @@ import {CommonModule, DatePipe} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {CheckboxComponent} from './components/checkbox/checkbox.component';
 import {RadiobuttonComponent} from './components/radiobutton/radiobutton.component';
-import {TextareasComponent} from './components/textareas/textareas.component';
+import {TextareaComponent} from './components/textarea/textarea.component';
 import {LabelComponent} from './components/label/label.component';
 import {FieldsetComponent} from './components/fieldset/fieldset.component';
-import {ButtonsComponent} from './components/buttons/button.component';
+import {ButtonComponent} from './components/button/button.component';
 import {LegendComponent} from './components/legend/legend.component';
 import {HintComponent} from './components/hint/hint.component';
 import {ValidationErrorFormControlComponent} from './components/validation-error-formcontrol/validation-error-formcontrol.component';
-import {InputsComponent} from './components/inputs/inputs.component';
+import {InputsComponent} from './components/input/inputs.component';
 import {DateComponent} from './components/date/date.component';
 import {FormsComponent} from '../forms/forms.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FormElementsComponent} from './components/jui-form-elements/form-elements.component';
+import {FormElementsComponent} from './components/form-elements/form-elements.component';
 import { SelectComponent } from './components/select/select.component';
 
 
@@ -29,10 +29,10 @@ import { SelectComponent } from './components/select/select.component';
     declarations: [
         CheckboxComponent,
         RadiobuttonComponent,
-        TextareasComponent,
+        TextareaComponent,
         LabelComponent,
         FieldsetComponent,
-        ButtonsComponent,
+        ButtonComponent,
         LegendComponent,
         HintComponent,
         ValidationErrorFormControlComponent,
@@ -45,10 +45,10 @@ import { SelectComponent } from './components/select/select.component';
     exports: [
         CheckboxComponent,
         RadiobuttonComponent,
-        TextareasComponent,
+        TextareaComponent,
         LabelComponent,
         FieldsetComponent,
-        ButtonsComponent,
+        ButtonComponent,
         LegendComponent,
         HintComponent,
         ValidationErrorFormControlComponent,

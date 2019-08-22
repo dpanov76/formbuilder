@@ -57,7 +57,7 @@
           </app-checkbox>
       </div>
 
-      <app-textareas *ngIf="data.textarea" [classes]="'govuk-textarea'"
+      <app-textarea *ngIf="data.textarea" [classes]="'govuk-textarea'"
                       [showValidation]="validate"
                       [validationError]="data.textarea.validationError"
                       [validators]="data.textarea.validators"
@@ -66,13 +66,13 @@
                       [label]="data.textarea.label"
                       [labelFor]="data.textarea.control"
                       [rows]="5">
-      </app-textareas>
-    <app-buttons *ngIf="data.button"
+      </app-textarea>
+    <app-button *ngIf="data.button"
                  [classes]="'govuk-button'"
                  [typeBtn]="data.button.type"
                  [group]="group"
                  [control]="data.button.control"
                  [value]="data.button.value">
-    </app-buttons>
+    </app-button>
     <!--JUI FORM builder component -->
 </div>

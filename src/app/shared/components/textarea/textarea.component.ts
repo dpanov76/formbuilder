@@ -2,11 +2,11 @@ import {Component, Input} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 
 @Component({
-    selector: 'app-textareas',
-    templateUrl: './textareas.component.html'
+    selector: 'app-textarea',
+    templateUrl: './textarea.component.html'
 })
 
-export class TextareasComponent {
+export class TextareaComponent {
     @Input() group: FormGroup;
     @Input() labelFor;
     @Input() rows;

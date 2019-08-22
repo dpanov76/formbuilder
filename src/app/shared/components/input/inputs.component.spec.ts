@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 //
-// import { JuiFormElementsComponent } from './jui-form-elements.component';
+// import { InputsComponent } from './input.component';
 //
-// describe('JuiFormElementsComponent', () => {
-//   let component: JuiFormElementsComponent;
-//   let fixture: ComponentFixture<JuiFormElementsComponent>;
+// describe('InputsComponent', () => {
+//   let component: InputsComponent;
+//   let fixture: ComponentFixture<InputsComponent>;
 //
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ JuiFormElementsComponent ]
+//       declarations: [ InputsComponent ]
 //     })
 //     .compileComponents();
 //   }));
 //
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(JuiFormElementsComponent);
+//     fixture = TestBed.createComponent(InputsComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
