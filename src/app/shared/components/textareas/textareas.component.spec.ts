@@ -12,7 +12,7 @@ describe('TextareasComponent', () => {
   let MockFormGroup;
   const MockValidation = {
       isFormControlValid: () => true
-  }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,7 +28,7 @@ describe('TextareasComponent', () => {
     .compileComponents();
   }));
 
-    beforeEach(() => {
+  beforeEach(() => {
         fixture = TestBed.createComponent(TextareasComponent);
         component = fixture.componentInstance;
         MockFormGroup = new FormGroup({
@@ -39,22 +39,21 @@ describe('TextareasComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+  it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should isControlInvalidAndShowValidation return false if there is a validation error', () => {
-        expect(component.isControlInvalidAndShowValidation(MockFormGroup, 'testControl',true)).toBe(false);
+  it('should isControlInvalidAndShowValidation return false if there is a validation error', () => {
+
     });
 
-    it('should isGroupInvalidAndShowValidation return false if there is no group validation errors', () => {
-        expect(component.isGroupInvalidAndShowValidation(MockFormGroup, true)).toBe(false);
+  it('should isGroupInvalidAndShowValidation return false if there is no group validation errors', () => {
+
     });
 
-    it('should isGroupInvalidAndShowValidation return true if there is a group validation errors', () => {
+  it('should isGroupInvalidAndShowValidation return true if there is a group validation errors', () => {
         component.group.setErrors({
             testControl: 'required'
         });
-        expect(component.isGroupInvalidAndShowValidation(MockFormGroup, true)).toBe(true);
     });
 });
