@@ -10,7 +10,7 @@ import {ButtonComponent} from './components/button/button.component';
 import {LegendComponent} from './components/legend/legend.component';
 import {HintComponent} from './components/hint/hint.component';
 import {ValidationErrorFormControlComponent} from './components/validation-error-formcontrol/validation-error-formcontrol.component';
-import {InputsComponent} from './components/input/inputs.component';
+import {InputComponent} from './components/input/input.component';
 import {DateComponent} from './components/date/date.component';
 import {FormsComponent} from '../forms/forms.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -36,7 +36,7 @@ import { SelectComponent } from './components/select/select.component';
         LegendComponent,
         HintComponent,
         ValidationErrorFormControlComponent,
-        InputsComponent,
+        InputComponent,
         DateComponent,
         FormElementsComponent,
         FormsComponent,
@@ -52,7 +52,7 @@ import { SelectComponent } from './components/select/select.component';
         LegendComponent,
         HintComponent,
         ValidationErrorFormControlComponent,
-        InputsComponent,
+        InputComponent,
         DateComponent,
         FormElementsComponent
     ],

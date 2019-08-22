@@ -1,1 +1,25 @@
-<p>select works!</p>
+<ng-container [formGroup]="group">
+  <app-label *ngIf="label"
+             [label]="label"
+             [class]="label.classes"
+             [forElement]="labelFor">{{label.text}}
+  </app-label>
+  <app-hint *ngIf="hint" [classes]="hint.classes">
+    {{hint.text}}
+  </app-hint>
+  <select [formControlName]="item.control"
+          [id]="item.control"
+          [class]="'govuk-select ' + item.classes">
+    <option *ngFor="let o of item.options; let i = index" [value]="item.control[i].id">
+      {{item.control[i].name}}
+    </option>
+  </select>
+  <!--<input [class]="'govuk-input ' + item.classes"-->
+         <!--[formControlName]="item.control"-->
+         <!--[id]="item.control"-->
+         <!--[name]="item.control"-->
+         <!--type="text">-->
+  <!--<ng-container *ngIf="validators && showValidation">-->
+    <!--<app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="item.control"></app-validation-error-formcontrol>-->
+  <!--</ng-container>-->
+</ng-container>

@@ -5,7 +5,7 @@ import {FormGroup} from '@angular/forms';
   selector: 'app-inputs',
   templateUrl: './inputs.component.html'
 })
-export class InputsComponent {
+export class InputComponent {
     @Input() group: FormGroup;
     @Input() item;
     @Input() label;

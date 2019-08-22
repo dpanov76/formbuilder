@@ -21,6 +21,14 @@
                   [hint]="data.input.hint"
                   [label]="data.input.label"
                   [labelFor]="data.input.control"></app-inputs>
+      <app-select *ngIf="data.select"
+                  [item]="data.select"
+                  [showValidation]="validate"
+                  [validators]="data.select.validators"
+                  [group]="group"
+                  [hint]="data.select.hint"
+                  [label]="data.select.label"
+                  [labelFor]="data.select.control"></app-select>
       <app-radiobutton *ngIf="data.radios" [classes]="'govuk-radios ' + data.radios.classes"
                        [items]="data.radios.radioGroup"
                        [group]="group"
