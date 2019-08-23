@@ -10,9 +10,6 @@ describe('TextareaComponent', () => {
   let component: TextareaComponent;
   let fixture: ComponentFixture<TextareaComponent>;
   let MockFormGroup;
-  const MockValidation = {
-      isFormControlValid: () => true
-  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,8 +17,7 @@ describe('TextareaComponent', () => {
         declarations: [ TextareaComponent, LabelComponent, ValidationErrorFormControlComponent ],
         providers: [ DatePipe,
             {
-                provide: ValidationService,
-                useValue: MockValidation
+                provide: ValidationService
             }
         ]
     })
@@ -41,19 +37,5 @@ describe('TextareaComponent', () => {
 
   it('should create', () => {
         expect(component).toBeTruthy();
-    });
-
-  it('should isControlInvalidAndShowValidation return false if there is a validation error', () => {
-
-    });
-
-  it('should isGroupInvalidAndShowValidation return false if there is no group validation errors', () => {
-
-    });
-
-  it('should isGroupInvalidAndShowValidation return true if there is a group validation errors', () => {
-        component.group.setErrors({
-            testControl: 'required'
-        });
     });
 });

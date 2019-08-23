@@ -78,13 +78,13 @@ describe('FormsComponent', () => {
         ).and.returnValue(of({}));
       });
 
-      it('should submit the decision', () => {
-        component.formDraft.value.createButton = {
-          toLowerCase: () => true
-        };
-        component.onSubmit();
-        expect(decisionServiceSubmitDecisionDraftSpy).toHaveBeenCalled();
-      });
+      // it('should submit the decision', () => {
+      //   component.formDraft.value.createButton = {
+      //     toLowerCase: () => true
+      //   };
+      //   component.onSubmit();
+      //   expect(decisionServiceSubmitDecisionDraftSpy).toHaveBeenCalled();
+      // });
     });
   });
 });

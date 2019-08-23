@@ -6,13 +6,6 @@
       <app-hint *ngIf="data.hint" [classes]="data.hint.classes">
           {{data.hint.text}}
       </app-hint>
-      <app-date *ngIf="data.date"
-                [id]="data.date.formName"
-                [data]="data.date"
-                [group]="group"
-                [validate]="validate"
-                [validationError]="data.date.validationError">
-      </app-date>
       <app-inputs *ngIf="data.input"
                   [item]="data.input"
                   [showValidation]="validate"

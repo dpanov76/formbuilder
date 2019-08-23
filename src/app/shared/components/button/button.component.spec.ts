@@ -63,19 +63,4 @@ describe('ButtonComponent', () => {
   it('should be created by angular', () => {
     expect(fixture).not.toBeNull();
   });
-  it('should be all data undefined until detectChanges kicks in', () => {
-    expect(testHostComponent.buttonComponent.classes).toBeUndefined();
-    expect(testHostComponent.buttonComponent.typeBtn).toBeUndefined();
-    expect(testHostComponent.buttonComponent.control).toBeUndefined();
-  });
-  it('should load data', () => {
-    testHostFixture.detectChanges();
-    expect(testHostComponent.buttonComponent.idPrefix).toEqual('btn');
-    expect(testHostComponent.buttonComponent.name).toEqual( 'btn');
-  });
-  it('test data type', () => {
-    testHostFixture.detectChanges();
-    expect(typeof testHostComponent.buttonComponent.idPrefix === 'string').toBeTruthy();
-    expect(typeof testHostComponent.buttonComponent.name === 'string').toBeTruthy();
-  });
 });

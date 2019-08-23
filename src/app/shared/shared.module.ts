@@ -11,7 +11,6 @@ import {LegendComponent} from './components/legend/legend.component';
 import {HintComponent} from './components/hint/hint.component';
 import {ValidationErrorFormControlComponent} from './components/validation-error-formcontrol/validation-error-formcontrol.component';
 import {InputComponent} from './components/input/input.component';
-import {DateComponent} from './components/date/date.component';
 import {FormsComponent} from '../forms/forms.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormElementsComponent} from './components/form-elements/form-elements.component';
@@ -37,7 +36,6 @@ import { SelectComponent } from './components/select/select.component';
         HintComponent,
         ValidationErrorFormControlComponent,
         InputComponent,
-        DateComponent,
         FormElementsComponent,
         FormsComponent,
         SelectComponent
@@ -53,7 +51,6 @@ import { SelectComponent } from './components/select/select.component';
         HintComponent,
         ValidationErrorFormControlComponent,
         InputComponent,
-        DateComponent,
         FormElementsComponent
     ],
   providers: [

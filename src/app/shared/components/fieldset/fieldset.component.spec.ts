@@ -58,15 +58,4 @@ describe('FieldsetComponent', () => {
   it('should be created by angular', () => {
     expect(fixture).not.toBeNull();
   });
-  it('should be all data undefined until detectChanges kicks in', () => {
-    expect(testHostComponent.fieldsetComponent.classes).toBeUndefined();
-    expect(testHostComponent.fieldsetComponent.data).toBeUndefined();
-    expect(testHostComponent.fieldsetComponent.group).toBeUndefined();
-    expect(testHostComponent.fieldsetComponent.validate).toBeUndefined();
-  });
-  it('should display the actionSecondaryButton', () => {
-    testHostFixture.detectChanges();
-    // expect(typeof testHostComponent.fieldsetComponent.classes === 'string').toBeTruthy();
-    // expect(typeof testHostComponent.fieldsetComponent.validate === 'string').toBeFalsy();
-  });
 });
