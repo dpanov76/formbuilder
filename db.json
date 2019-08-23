@@ -150,13 +150,7 @@
       ]
     },
     "formValues": {
-      "login": "dpanov76@yahoo.com",
-      "password": "we",
-      "dummyRadios": "yes",
-      "dummyTextArea": "sdfsdf",
-      "tsAndCs": true,
-      "dummySelect": "2",
-      "createButton": "Continue"
+
     }
   }
 }
