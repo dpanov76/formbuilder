@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
 import {FormsService} from '../shared/services/forms.service';
 import {DataService} from '../shared/services/data.service';
-
 
 @Component({
   selector: 'app-forms',
@@ -13,15 +11,12 @@ import {DataService} from '../shared/services/data.service';
 export class FormsComponent implements OnInit {
   formDraft: FormGroup;
   data: any;
-  request: any;
   pageValues: any;
   pageId = 'simple';
   pageItems: any;
-  useValidation: boolean = false;
+  useValidation: boolean;
 
   constructor(
-    public router: Router,
-    private activatedRoute: ActivatedRoute,
     public dataService: DataService,
     private formsService: FormsService
   ) {}

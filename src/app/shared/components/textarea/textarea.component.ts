@@ -17,4 +17,5 @@ export class TextareaComponent {
     @Input() items;
     @Input() validationError;
     @Input() validators;
+    @Input() placeholder;
 }

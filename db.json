@@ -30,6 +30,7 @@
               }
             ],
             "control": "login",
+            "placeholder": "your login here",
             "classes": ""
           }
         },
@@ -51,6 +52,7 @@
               }
             ],
             "control": "password",
+            "placeholder": "your password here",
             "classes": ""
           }
         },
@@ -91,6 +93,7 @@
               }
             ],
             "control": "dummyTextArea",
+            "placeholder": "put some text here",
             "value": ""
           }
         },
@@ -140,11 +143,10 @@
         },
         {
           "button": {
-            "control": "createButton",
-            "value": "Continue",
+            "control": "submitButton",
+            "value": "continue",
             "type": "submit",
-            "classes": "",
-            "onEvent": "continue"
+            "classes": ""
           }
         }
       ]

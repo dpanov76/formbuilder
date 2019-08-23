@@ -9,10 +9,12 @@
     </app-hint>
     <input [class]="'govuk-input ' + item.classes"
            [formControlName]="item.control"
+           [placeholder]="item.placeholder"
            [id]="item.control"
            [name]="item.control"
-           type="text">
+           type="text"
+           (blur)="showValidation = true">
     <ng-container *ngIf="validators && showValidation">
-      <app-validation-error-formcontrol *ngIf="showValidation" [group]="group" [validators]="validators" [control]="item.control"></app-validation-error-formcontrol>
+      <app-validation-error-formcontrol [group]="group" [validators]="validators" [control]="item.control"></app-validation-error-formcontrol>
     </ng-container>
 </ng-container>

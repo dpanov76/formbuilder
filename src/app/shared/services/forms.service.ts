@@ -48,7 +48,7 @@ export class FormsService {
 
     createFormControl(initialValue: any, controlName: string, validators) {
       if (validators) {
-        this.FormControls[controlName] = new FormControl(initialValue, this.validationService.addControlValidationFn(validators));
+        this.FormControls[controlName] = new FormControl(initialValue,  this.validationService.addControlValidationFn(validators));
         return;
       }
       this.FormControls[controlName] = new FormControl(initialValue);

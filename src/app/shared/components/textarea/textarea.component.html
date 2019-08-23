@@ -9,7 +9,9 @@
               [rows]="rows"
               [id]="labelFor"
               [attr.aria-label]="labelFor"
-              [formControlName]="control"></textarea>
+              [formControlName]="control"
+              [placeholder]="placeholder"
+              (blur)="showValidation = true"></textarea>
     <ng-container *ngIf="validators && showValidation">
       <app-validation-error-formcontrol [group]="group" [validators]="validators" [control]="control"></app-validation-error-formcontrol>
     </ng-container>

@@ -9,7 +9,11 @@
   </app-hint>
   <select [formControlName]="item.control"
           [id]="item.control"
-          [class]="'govuk-select ' + item.classes">
+          [class]="'govuk-select ' + item.classes"
+          (blur)="showValidation = true"
+          [value]=0
+          >
+    <option value="0" disabled selected>Select something</option>
     <option *ngFor="let o of item.options" [value]="o.id">
       {{o.name}} {{o.selected}}
     </option>

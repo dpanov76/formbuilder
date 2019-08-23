@@ -64,13 +64,13 @@
               </div>
           </app-checkbox>
       </div>
-
       <app-textarea *ngIf="data.textarea" [classes]="'govuk-textarea'"
                       [showValidation]="validate"
                       [validationError]="data.textarea.validationError"
                       [validators]="data.textarea.validators"
                       [group]="group"
                       [control]="data.textarea.control"
+                      [placeholder]="data.textarea.placeholder"
                       [label]="data.textarea.label"
                       [labelFor]="data.textarea.control"
                       [rows]="5">
