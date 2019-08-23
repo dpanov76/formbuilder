@@ -43,9 +43,10 @@ export class FormsComponent implements OnInit {
       alert('Something wrong!');
       return;
     } else {
-      this.request = { formValues: this.formDraft.value };
-      this.dataService.submitData(this.pageId, this.request).subscribe(() => {
-        console.log('Done');
+      // Hack for JSON server
+      this.data.formValues = this.formDraft.value;
+      this.dataService.submitData(this.pageId, this.data).subscribe(() => {
+         console.log('Done');
       });
     }
   }

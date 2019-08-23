@@ -15,16 +15,16 @@
                 "message": "Login is required"
               },
               {
-                "type":"email",
+                "type": "email",
                 "message": "Incorrect email format"
               },
               {
-                "type":"maxlength",
+                "type": "maxlength",
                 "message": "Should not be more than 14 characters",
                 "value": 24
               },
               {
-                "type":"minlength",
+                "type": "minlength",
                 "message": "Should not be less than 4 characters",
                 "value": 4
               }
@@ -45,7 +45,7 @@
                 "message": "Password is required"
               },
               {
-                "type":"pattern",
+                "type": "pattern",
                 "message": "Contains restricted characters",
                 "regexp": "^[a-zA-Z0-9_.-]*$"
               }
@@ -83,8 +83,9 @@
               {
                 "type": "required",
                 "message": "This text could not be empty"
-              },              {
-                "type":"pattern",
+              },
+              {
+                "type": "pattern",
                 "message": "This text contains restricted characters please remove",
                 "regexp": "^[a-zA-Z0-9_.-]*$"
               }
@@ -148,6 +149,14 @@
         }
       ]
     },
-    "formValues": {}
+    "formValues": {
+      "login": "dpanov76@yahoo.com",
+      "password": "we",
+      "dummyRadios": "yes",
+      "dummyTextArea": "sdfsdf",
+      "tsAndCs": true,
+      "dummySelect": "2",
+      "createButton": "Continue"
+    }
   }
 }
