@@ -21,7 +21,7 @@
               {
                 "type":"maxlength",
                 "message": "Should not be more than 14 characters",
-                "value": 14
+                "value": 24
               },
               {
                 "type":"minlength",

@@ -43,8 +43,8 @@ export class FormsComponent implements OnInit {
       alert('Something wrong!');
       return;
     } else {
-      alert('Submitted');
-      this.dataService.submitData(this.pageId,this.request);
+      this.request = { formValues: this.formDraft.value };
+      this.dataService.submitData(this.pageId, this.request);
     }
   }
 }

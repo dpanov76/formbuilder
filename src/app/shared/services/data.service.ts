@@ -21,7 +21,8 @@ export class DataService {
 
   submitData(pageId: string, body: any): Observable<any> {
     const url = this.generateDecisionUrl(pageId);
-    return this.httpClient.post(url + '/formValues', body, { headers : {'Content-Type': 'application/json'} });
+    return this.httpClient.put(url , body, { headers : {'Content-Type': 'application/json'} });
+    //return this.httpClient.post(url , body, { headers : {'Content-Type': 'application/json'} });
   }
 
 }
