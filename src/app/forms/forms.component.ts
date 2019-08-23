@@ -44,7 +44,9 @@ export class FormsComponent implements OnInit {
       return;
     } else {
       this.request = { formValues: this.formDraft.value };
-      this.dataService.submitData(this.pageId, this.request);
+      this.dataService.submitData(this.pageId, this.request).subscribe(() => {
+        console.log('Done');
+      });
     }
   }
 }
