@@ -16,7 +16,7 @@ export class FormsComponent implements OnInit {
   request: any;
   pageValues: any;
   pageId = 'simple';
-  pageitems: any;
+  pageItems: any;
   useValidation: boolean = false;
 
   constructor(
@@ -25,32 +25,26 @@ export class FormsComponent implements OnInit {
     public dataService: DataService,
     private formsService: FormsService
   ) {}
-  createForm(pageitems, pageValues) {
-    this.formDraft = new FormGroup(this.formsService.defineformControls(pageitems, pageValues));
+  createForm(pageItems, pageValues) {
+    this.formDraft = new FormGroup(this.formsService.defineformControls(pageItems, pageValues));
   }
   ngOnInit() {
     this.useValidation = false;
     this.dataService.fetch(this.pageId).subscribe(data => {
       this.data = data;
-      this.pageitems = this.data.meta;
+      this.pageItems = this.data.meta;
       this.pageValues = this.data.formValues;
-      this.createForm(this.pageitems, this.pageValues) ;
+      this.createForm(this.pageItems, this.pageValues) ;
     });
   }
   onSubmit() {
-    if (this.formDraft.value.createButton) {
-      const event = this.formDraft.value.createButton.toLowerCase();
-      delete this.formDraft.value.createButton;
-      this.request = { formValues: this.formDraft.value, event: event };
-      this.request.formValues.visitedPages = this.pageValues.visitedPages;
-      if (this.formDraft.invalid) {
-        this.useValidation = true;
-        alert('Something wrong!');
-        return;
-      } else {
-        alert('Submitted');
-        //this.dataService.submitdataDraft(this.pageId,this.request);
-      }
+    if (this.formDraft.invalid) {
+      this.useValidation = true;
+      alert('Something wrong!');
+      return;
+    } else {
+      alert('Submitted');
+      this.dataService.submitData(this.pageId,this.request);
     }
   }
 }

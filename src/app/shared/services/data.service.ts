@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +19,9 @@ export class DataService {
     return this.httpClient.get(url);
   }
 
-  submitDecisionDraft(jurId: string, caseId: string, pageId: string, caseType: string, body: any): Observable<any> {
+  submitData(pageId: string, body: any): Observable<any> {
     const url = this.generateDecisionUrl(pageId);
-    return this.httpClient.post(url, body);
+    return this.httpClient.post(url + '/formValues', body, { headers : {'Content-Type': 'application/json'} });
   }
 
 }

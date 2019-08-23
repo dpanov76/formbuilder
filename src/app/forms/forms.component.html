@@ -1,12 +1,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form *ngIf="pageitems" [formGroup]="formDraft" (ngSubmit)="onSubmit()">
+    <form *ngIf="pageItems" [formGroup]="formDraft" (ngSubmit)="onSubmit()">
       <div [ngClass]="{'govuk-form-group':true, 'govuk-form-group--error' : useValidation && formDraft.invalid }">
         <h1 class="govuk-heading-xl">
-          <span *ngIf="pageitems.caption" [class]="pageitems.caption.classes">{{ pageitems.caption.text }}</span>
-          {{pageitems.header}}
+          <span *ngIf="pageItems.caption" [class]="pageItems.caption.classes">{{ pageItems.caption.text }}</span>
+          {{pageItems.header}}
         </h1>
-        <div class="govuk-form-group" *ngFor="let group of pageitems.groups">
+        <div class="govuk-form-group" *ngFor="let group of pageItems.groups">
           <app-fieldset *ngIf="group.fieldset"
                         [classes]="'govuk-fieldset'"
                         [group]="formDraft"
