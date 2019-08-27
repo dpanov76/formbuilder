@@ -2,6 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
 import { FormsService } from './forms.service';
 import { ValidationService } from './validation.service';
+import {FormControl, Validators} from '@angular/forms';
 
 describe('FormsService', () => {
   beforeEach(() => {
@@ -74,15 +75,16 @@ describe('FormsService', () => {
 
       it('should create control where data does not match', inject([FormsService], (service: FormsService) => {
         const createFormControlSpy = spyOn(service, 'createFormControl');
-        const someJson = [
-          {
-            control: 'text'
-          }
-        ];
+        const someJson = {
+          control: 'text',
+          validators: []
+        };
+
         const someData = {
           radio: 'test'
         };
 
+        console.log(someJson.validators);
         service.create(someJson, someData);
         expect(createFormControlSpy).toHaveBeenCalled();
       }));

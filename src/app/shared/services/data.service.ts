@@ -10,17 +10,17 @@ export class DataService {
     private httpClient: HttpClient
   ) { }
 
-  generateDecisionUrl( pageId: string ) {
+  generateUrl( pageId: string ) {
     return `http://localhost:3000/${pageId}`;
   }
 
   fetch(pageId: string): Observable<any> {
-    const url = this.generateDecisionUrl(pageId);
+    const url = this.generateUrl(pageId);
     return this.httpClient.get(url);
   }
 
   submitData(pageId: string, body: any): Observable<any> {
-    const url = this.generateDecisionUrl(pageId);
+    const url = this.generateUrl(pageId);
     console.log(url , body);
     return this.httpClient.post(url , body, { headers : {'Content-Type': 'application/json'} });
   }
