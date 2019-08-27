@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validator, Validators} from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserTransferStateModule } from '@angular/platform-browser';
@@ -12,11 +12,11 @@ import { DataService } from '../shared/services/data.service';
 describe('FormsComponent', () => {
   let component: FormsComponent;
   let fixture: ComponentFixture<FormsComponent>;
-  let decisionServiceFetchSpy;
-  let decision;
+  let dataServiceFetchSpy;
+  let data;
 
   beforeEach(async(() => {
-    decision = {};
+    data = {};
     TestBed.configureTestingModule({
       declarations: [ FormsComponent ],
       imports: [
@@ -32,20 +32,20 @@ describe('FormsComponent', () => {
           provide: DataService,
           useValue: {
             fetch: () => {
-              return of(decision);
+              return of(data);
             },
-            submitDecisionDraft: () => {
+            submitData: () => {
               return of({});
             }
           }
         },
       ]
-    })
+})
       .compileComponents();
   }));
 
   beforeEach(() => {
-    decisionServiceFetchSpy = spyOn(
+    dataServiceFetchSpy = spyOn(
       TestBed.get(DataService),
       'fetch'
     ).and.returnValue(of({
@@ -69,22 +69,27 @@ describe('FormsComponent', () => {
   describe('on form submission', () => {
 
     describe('if form is valid', () => {
-      let decisionServiceSubmitDecisionDraftSpy;
+      let dataServiceSubmitdataSpy;
 
       beforeEach(() => {
-        decisionServiceSubmitDecisionDraftSpy = spyOn(
+        dataServiceSubmitdataSpy = spyOn(
           TestBed.get(DataService),
-          'submitDecisionDraft'
+          'submitData'
         ).and.returnValue(of({}));
       });
 
-      // it('should submit the decision', () => {
-      //   component.formDraft.value.createButton = {
-      //     toLowerCase: () => true
-      //   };
-      //   component.onSubmit();
-      //   expect(decisionServiceSubmitDecisionDraftSpy).toHaveBeenCalled();
-      // });
+      it('should submit the data', () => {
+        component.onSubmit();
+        expect(dataServiceSubmitdataSpy).toHaveBeenCalled();
+      });
+      it('should trigger validation error if form is invalid', () => {
+        component.formDraft = new FormGroup({
+          test: new FormControl('', Validators.required)
+        });
+        component.onSubmit();
+        expect(component.useValidation).toBe(true);
+      });
     });
   });
+
 });
